@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const apiRoutes = require('./routes/apiRoutes')
-const htmlRoutes = require('./routes/htmlRoutes')
+const apiRoutes = require('./Develop/routes/apiRoutes')
+const htmlRoutes = require('./Develop/routes/htmlRoutes')
 const PORT = process.env.PORT || 3001
 
 app.use(express.static("public"));
