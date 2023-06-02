@@ -1,11 +1,16 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const apiRoutes = require('./routes/apiRoutes')
+const htmlRoutes = require('./routes/htmlRoutes')
+const PORT = process.env.PORT || 3001
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
+app.use("/api", apiRoutes);
+app.use("/", htmlRoutes);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
+});
